@@ -1,0 +1,7 @@
+newsfeed:
+  table:
+    action: Acción
+    description: Descripción
+    date: Fecha
+    user: Usuario
+    detail: Detalle

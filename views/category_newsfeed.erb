@@ -1,0 +1,51 @@
+<div id="page_wrapper">
+  <% if @data.empty? %>
+    <div class="all-border-solid-light top-margin-1line">
+      <p class="no-data-message"><%= t.entitymanagement.no_data %></p>
+    </div>
+  <% else %>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th class="table-header-title" scope="col" style="width:15%">
+          <%= t.newsfeed.table.date %>
+        </th>
+        <th class="table-header-title" scope="col" style="width:30%">
+          <%= t.newsfeed.table.action %>
+        </th>
+        <th class="table-header-title" scope="col" style="width:15%">
+          <%= t.newsfeed.table.user %>
+        </th>
+        <th class="table-header-title" scope="col" style="width:45%">
+          <%= t.newsfeed.table.detail %>
+        </th>
+        <th class="table-header-title centered_text" scope="col">
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @data.each do |entity| %>
+        <tr class="table-row">
+          <td class="table-cell">
+            <%= entity.creation_date.strftime('%d.%m.%Y %H:%M:%S') %>
+          </td>
+          <td class="table-cell">
+            <%= entity.description %>
+          </td>
+          <td class="table-cell">
+            <%= entity.creation_user %>
+          </td>
+          <td class="table-cell centered_text">
+            <% unless entity.attributes_updated.nil? %>
+              <pre><%= entity.attributes_updated %></pre>
+            <% end %>
+          </td>
+          <td class="table-cell centered_text">
+
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

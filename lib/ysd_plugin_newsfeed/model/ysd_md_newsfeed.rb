@@ -20,7 +20,11 @@ module Yito
         before :create do
           created_at = DateTime.now if created_at.nil?
         end
-        
+
+        def modification
+
+        end
+
       end
     end
   end
